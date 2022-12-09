@@ -95,13 +95,13 @@ def ValidatingVideoID(v_link):
 if __name__ == "__main__":
   #video_id = "y3tTOePEIV4"
   st.title('Youtube Comment Analyser','')
-  col1, col2, col3 = st.columns([0.05,1,0.05])
-  with col1:
-    st.write("")
-  with col2:
-    st.image("Youtube_Logo.png")
-  with col3:
-    st.write("")
+#   col1, col2, col3 = st.columns([0.05,1,0.05])
+#   with col1:
+#     st.write("")
+#   with col2:
+#     st.image("Youtube_Logo.png")
+#   with col3:
+#     st.write("")
   video_link=st.text_input('Paste Link of Youtube Video here :','https://www.youtube.com/watch?v=waywSmIFDS8')
   if st.button('Analyse Video'):
 
