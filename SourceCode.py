@@ -234,22 +234,22 @@ if __name__ == "__main__":
     else :
         st.write(" ==> You got neutral feedback.")
 
-    with open('Positive_comments.csv', 'w', encoding='utf-8') as csvfile:
-            writer = csv.writer(csvfile)
-            for comment in Positive_list:
-                writer.writerow([comment])
-    with open('Negative_comments.csv', 'w', encoding='utf-8') as csvfile:
-            writer = csv.writer(csvfile)
-            for comment in Negative_list:
-                writer.writerow([comment])
-    with open('Neutral_comments.csv', 'w', encoding='utf-8') as csvfile:
-            writer = csv.writer(csvfile)
-            for comment in Neutral_list:
-                writer.writerow([comment])
-    with open('Links_comments.csv', 'w', encoding='utf-8') as csvfile:
-            writer = csv.writer(csvfile)
-            for comment in Links_list:
-                writer.writerow([comment])
+#     with open('Positive_comments.csv', 'w', encoding='utf-8') as csvfile:
+#             writer = csv.writer(csvfile)
+#             for comment in Positive_list:
+#                 writer.writerow([comment])
+#     with open('Negative_comments.csv', 'w', encoding='utf-8') as csvfile:
+#             writer = csv.writer(csvfile)
+#             for comment in Negative_list:
+#                 writer.writerow([comment])
+#     with open('Neutral_comments.csv', 'w', encoding='utf-8') as csvfile:
+#             writer = csv.writer(csvfile)
+#             for comment in Neutral_list:
+#                 writer.writerow([comment])
+#     with open('Links_comments.csv', 'w', encoding='utf-8') as csvfile:
+#             writer = csv.writer(csvfile)
+#             for comment in Links_list:
+#                 writer.writerow([comment])
     #print("\nSegragated comment write done!")
 
 
@@ -260,102 +260,102 @@ if __name__ == "__main__":
            
            
            
-    # st.write('Positive Comments')
-    data1=pd.read_csv('Positive_comments.csv',index_col=False)
-    # st.dataframe(data)
-    # csv_downloader(data
-    # st.write('Negative Comments')
-    data2=pd.read_csv('Negative_comments.csv',delim_whitespace=True)
-    # st.dataframe(data)
-    # st.write('Positive Comments')
-    data3=pd.read_csv('Neutral_comments.csv')
-    # st.dataframe(data)
-    # st.write('Positive Comments')
-    if(len(Links_list)) >0:
-        data4=pd.read_csv('Links_comments.csv')
-    # st.dataframe(data)
+#     # st.write('Positive Comments')
+#     data1=pd.read_csv('Positive_comments.csv',index_col=False)
+#     # st.dataframe(data)
+#     # csv_downloader(data
+#     # st.write('Negative Comments')
+#     data2=pd.read_csv('Negative_comments.csv',delim_whitespace=True)
+#     # st.dataframe(data)
+#     # st.write('Positive Comments')
+#     data3=pd.read_csv('Neutral_comments.csv')
+#     # st.dataframe(data)
+#     # st.write('Positive Comments')
+#     if(len(Links_list)) >0:
+#         data4=pd.read_csv('Links_comments.csv')
+#     # st.dataframe(data)
 
 
 
 
-    left_column, right_column = st.columns(2)
-    left_column, right_column = st.columns([1,1])
-    # middle_column.plotly_chart(fig, use_container_width=True)
+#     left_column, right_column = st.columns(2)
+#     left_column, right_column = st.columns([1,1])
+#     # middle_column.plotly_chart(fig, use_container_width=True)
 
-    with left_column:
-        st.header("All the Positive Comments Are Below :")
-        st.dataframe(data1)
+#     with left_column:
+#         st.header("All the Positive Comments Are Below :")
+#         st.dataframe(data1)
 
 
-    with right_column:
-        st.header("All the Negative Comments Are Below :")
-        st.dataframe(data2)
+#     with right_column:
+#         st.header("All the Negative Comments Are Below :")
+#         st.dataframe(data2)
 
 
     
-    left_column, right_column = st.columns(2)
-    left_column, right_column = st.columns([1,1])
-    # middle_column.plotly_chart(fig, use_container_width=True)
+#     left_column, right_column = st.columns(2)
+#     left_column, right_column = st.columns([1,1])
+#     # middle_column.plotly_chart(fig, use_container_width=True)
 
-    with left_column:
-        st.header("All the Neutral Comments Are Below :")
-        st.dataframe(data3)
-
-
-    with right_column:
-        st.header("Comments Containing Links Are Below :")
-        if(len(Links_list)) >0:
-            # data4=pd.read_csv('Links_comments.csv')
-    # st.dataframe(data)
-            st.dataframe(data4)
-
-    st.write("\n ********************************************************************\n")
-
-    # right_column.plotly_chart(fig, use_container_width=True)
-    # plt.tight_layout()
-
-    # plt.axis('equal')
-
-    # plt.show()
-
-# with open('Positive_comments.csv', 'rb') as f:
-#    st.download_button('Download Zip', f, file_name='archive.')
+#     with left_column:
+#         st.header("All the Neutral Comments Are Below :")
+#         st.dataframe(data3)
 
 
-    liste= Positive_list
-    df_download= pd.DataFrame(liste)
-    df_download.columns=['Title']
-    # df_download
-    csv = df_download.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # some strings
-    linko= f'<a href="data:file/csv;base64,{b64}" download="Positive_Comments.txt">Positive Comments File</a>'
-    st.markdown(linko, unsafe_allow_html=True)
+#     with right_column:
+#         st.header("Comments Containing Links Are Below :")
+#         if(len(Links_list)) >0:
+#             # data4=pd.read_csv('Links_comments.csv')
+#     # st.dataframe(data)
+#             st.dataframe(data4)
 
-    liste= Negative_list
-    df_download= pd.DataFrame(liste)
-    df_download.columns=['Title']
-    # df_download
-    csv = df_download.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # some strings
-    linko= f'<a href="data:file/csv;base64,{b64}" download="Negative_Comments.txt">Negative Comments File</a>'
-    st.markdown(linko, unsafe_allow_html=True)
+#     st.write("\n ********************************************************************\n")
 
-    liste= Neutral_list
-    df_download= pd.DataFrame(liste)
-    df_download.columns=['Title']
-    # df_download
-    csv = df_download.to_csv(index=False)
-    b64 = base64.b64encode(csv.encode()).decode()  # some strings
-    linko= f'<a href="data:file/csv;base64,{b64}" download="Neutral_Comments.txt">Neutral Comments File</a>'
-    st.markdown(linko, unsafe_allow_html=True)
-    if(len(Links_list)) >0:
+#     # right_column.plotly_chart(fig, use_container_width=True)
+#     # plt.tight_layout()
 
-        liste= Links_list
-        df_download= pd.DataFrame(liste)
-        df_download.columns=['Title']
-        csv = df_download.to_csv(index=False)
-        b64 = base64.b64encode(csv.encode()).decode()  # some strings
-        linko= f'<a href="data:file/csv;base64,{b64}" download="Link_Contained_comments.txt">Link Containing Comments</a>'
-        st.markdown(linko, unsafe_allow_html=True)
+#     # plt.axis('equal')
+
+#     # plt.show()
+
+# # with open('Positive_comments.csv', 'rb') as f:
+# #    st.download_button('Download Zip', f, file_name='archive.')
+
+
+#     liste= Positive_list
+#     df_download= pd.DataFrame(liste)
+#     df_download.columns=['Title']
+#     # df_download
+#     csv = df_download.to_csv(index=False)
+#     b64 = base64.b64encode(csv.encode()).decode()  # some strings
+#     linko= f'<a href="data:file/csv;base64,{b64}" download="Positive_Comments.txt">Positive Comments File</a>'
+#     st.markdown(linko, unsafe_allow_html=True)
+
+#     liste= Negative_list
+#     df_download= pd.DataFrame(liste)
+#     df_download.columns=['Title']
+#     # df_download
+#     csv = df_download.to_csv(index=False)
+#     b64 = base64.b64encode(csv.encode()).decode()  # some strings
+#     linko= f'<a href="data:file/csv;base64,{b64}" download="Negative_Comments.txt">Negative Comments File</a>'
+#     st.markdown(linko, unsafe_allow_html=True)
+
+#     liste= Neutral_list
+#     df_download= pd.DataFrame(liste)
+#     df_download.columns=['Title']
+#     # df_download
+#     csv = df_download.to_csv(index=False)
+#     b64 = base64.b64encode(csv.encode()).decode()  # some strings
+#     linko= f'<a href="data:file/csv;base64,{b64}" download="Neutral_Comments.txt">Neutral Comments File</a>'
+#     st.markdown(linko, unsafe_allow_html=True)
+#     if(len(Links_list)) >0:
+
+#         liste= Links_list
+#         df_download= pd.DataFrame(liste)
+#         df_download.columns=['Title']
+#         csv = df_download.to_csv(index=False)
+#         b64 = base64.b64encode(csv.encode()).decode()  # some strings
+#         linko= f'<a href="data:file/csv;base64,{b64}" download="Link_Contained_comments.txt">Link Containing Comments</a>'
+#         st.markdown(linko, unsafe_allow_html=True)
 
 
